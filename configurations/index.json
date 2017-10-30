@@ -1,0 +1,15 @@
+{
+    "component_path":"https://vmiis.github.io/parts",
+	"api_path_development":"https://cbs.wappsystem.com/dev/",
+	"api_path_production":"https://cbs.wappsystem.com/dev/",
+	"default_production":"No",
+	"additional_groups":[],
+	"modules":
+	{
+        "home":	            {"url":"/modules/static/home.html","name_for_search":"Home page"},
+        "feature":	        {"url":"/modules/static/feature.html","name_for_search":"Feature page"},
+        "create":	            {"url":"/modules/static/create.html","name_for_search":"Create page"},
+        "pricing":	            {"url":"/modules/static/pricing.html","name_for_search":"Pricing page"},
+		"contact_us":          {"url":"/modules/dynamic/contact_us.html","table_id":"20004748","name_for_search":"Contact Us"}
+	}
+}
