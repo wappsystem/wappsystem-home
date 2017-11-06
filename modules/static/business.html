@@ -1,0 +1,72 @@
+<div id=page__ID>
+	<div class="container-fluid" style='max-width:800px'>
+		<div class="text-center panel__ID">
+			<h1>BUSINESS MODEL</h1>
+			<h2></h2>
+	  	  <hr style='border-top:1px solid #fff;'></hr>
+		  <div class="row">
+			  <div class="col-sm">
+				  <h3 class= "text-center">Expenditure</h3>
+				  <h6 class="text-left">
+					  Renting a cloud base database server(s) from a reliable source. ($300/Month will easily cover the example of 1700 customers)
+					  Flexible - it can easily be expanded as business grow<br><br>
+					  Real cost is in personel<br>
+					  &bull; Half time database manager
+					  <br>
+					  &bull; Full time web technology expert
+					  <br>
+					  &bull; Admin personnel
+					  <br><br>
+				  </h6>
+			  </div>
+			  <div class="col-sm">
+				  <h3 class= "text-center">Income</h3>
+				  <h6 class="text-left">
+					  Charge monthly (automated) for database tables and number of records in each tabel.<br><br>
+					  $1/table and $1/1000 records (1001 records would be charged $2)
+					  <br><br>
+					  Minimum charge per month $30
+					  <br><br>
+					  With 1700 customer<br>10% paying $150/month<br>30% paying $60/month<br>60% paying $30/month<br>
+					  yearly income would be $1,040,400
+					  <br><br>
+
+				  </h6>
+			  </div>
+			</div>
+			<button id=a1__ID class="btn btn-secondary btn-lg">Market</button>
+			<br><br>
+		</div>
+	</div>
+</div>
+<script>
+	function F__ID(){
+		$('#a1__ID').on('click',function(){
+			$vm.nav_load_module('market');
+		})
+	}
+</script>
+<style>
+	#D__ID{
+		height:100%;
+        overflow:auto;
+		animation: vm_module_fadein 1.0s;
+	}
+	#page__ID{
+		height:100%;
+		display: flex;
+		align-items: center;
+	}
+	.panel__ID{
+		color:#ccc;
+		font-weight: normal;
+		background: rgba(20,20,20,0.6);
+	    padding: 30px 20px 10px 20px;
+	    border-radius: 15px;
+	}
+	@media screen and (max-width:786px){
+		#page__ID{
+			display: block;
+		}
+	}
+</style>
