@@ -10,7 +10,7 @@
         "technology":	        {"url":"/modules/static/technology.html","name_for_search":"Technology page"},
         "business":	        {"url":"/modules/static/business.html","name_for_search":"Business page"},
         "market":	            {"url":"/modules/static/market.html","name_for_search":"Market page"},
-        "feature":	            {"url":"/modules/static/feature.html","name_for_search":"Feature page"},
+        "support":	            {"url":"/modules/static/support.html","name_for_search":"support page"},
 		"contact_us":          {"url":"/modules/dynamic/contact_us.html","table_id":"20004748","name_for_search":"Contact Us"}
 	}
 }
