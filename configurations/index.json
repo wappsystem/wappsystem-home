@@ -1,7 +1,7 @@
 {
     "component_path":"https://vmiis.github.io/parts",
 	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/dev/",
+	"api_path_production":"https://cbs.wappsystem.com/pro/",
 	"default_production":"No",
 	"additional_groups":[],
 	"modules":
@@ -10,7 +10,8 @@
         "technology":	        {"url":"/modules/static/technology.html","name_for_search":"Technology page"},
         "business":	        {"url":"/modules/static/business.html","name_for_search":"Business page"},
         "market":	            {"url":"/modules/static/market.html","name_for_search":"Market page"},
-        "support":	            {"url":"/modules/static/support.html","name_for_search":"support page"},
-		"contact_us":          {"url":"/modules/dynamic/contact_us.html","table_id":"20004748","name_for_search":"Contact Us"}
+        "support":	            {"url":"/modules/static/support.html","name_for_search":"Support page"},
+        "contact_us":          {"url":"/modules/dynamic/contact-us.html","table_id":"20004748","name_for_search":"Contact Us"},
+        "contact_us_records":     {"url":"/modules/dynamic/contact-us.record.html","table_id":"20004748","name_for_search":"Contact Us Records"}
 	}
 }
