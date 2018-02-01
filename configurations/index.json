@@ -7,10 +7,8 @@
 	"modules":
 	{
         "home":	            {"url":"/modules/static/home.html","name_for_search":"Home page"},
-        "technology":	        {"url":"/modules/static/technology.html","name_for_search":"Technology page"},
-        "business":	        {"url":"/modules/static/business.html","name_for_search":"Business page"},
-        "market":	            {"url":"/modules/static/market.html","name_for_search":"Market page"},
-        "support":	            {"url":"/modules/static/support.html","name_for_search":"Support page"},
+        "customer-interaction":	        {"url":"/modules/static/customer-interaction.html","name_for_search":"Customer Interaction"},
+        "business-tasks":	        {"url":"/modules/static/business-tasks.html","name_for_search":"Business Tasks"},
         "contact_us":          {"url":"/modules/dynamic/contact-us.html","table_id":"20004748","name_for_search":"Contact Us"},
         "contact_us_records":     {"url":"/modules/dynamic/contact-us.record.html","table_id":"20004748","name_for_search":"Contact Us Records"}
 	}
