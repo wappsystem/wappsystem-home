@@ -1,20 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Wappsystem</title>
-		<meta charset="utf-8">
-		<meta name='viewport' content='width=device-width, initial-scale=1'>
-		<meta name="description" content="Building your own cloud application that includes a database">
-		<meta name="author" content="Wappsystem, administrator@wappsystem.com">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css">
-		<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
-		<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js"></script>
-		<script>
-			$(document).ready(function(){
-				$.get('version.html?_='+new Date().getTime().toString(),function(v){ console.log(v); $vm={}; $vm.ver=v.trim().split(','); $.getScript('index.js?_sv='+$vm.ver[2], function(){ vm_init();});},'text')
-			});
-		</script>
-	</head>
-	<body></body>
+<html>
+    <head>
+        <!-- The title and meta data are changed by the active module-->
+        <title></title>
+        <meta name="description" content="">
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="icon" href="data:,">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.css" />
+    </head>
+    <body>
+        <!-- Typical website layout, the contents are dynamiclly updated by modules-->
+        <div id=header></div>
+        <div id=content></div>
+        <div id=footer></div>
+        <div id=system></div>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
+    </body>
+    <script boot-up>
+        //------------------------------------
+        $vm={};$vm.ver=[0.18,0.18]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm.debug=1;
+        //------------------------------------
+        //setup modules location
+        $vm.hosting_path=window.location.href.substring(0, window.location.href.split('?')[0].lastIndexOf('/'));
+        if(window.location.href.substring(0,5)=="file:") $vm.hosting_path="https://wappsystem.github.io/wappsystem-home/";
+        if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
+        $vm.m_path='https://wappsystem.github.io/wappsystem-home/'; if($vm.localhost==true) $vm.m_path='http://127.0.0.1:8000/wappsystem/wappsystem-home/components'; 
+        //------------------------------------
+        //where are your start modules
+        $vm.start_modules=[
+            "$H/frame.html",  //app frame work
+        ]
+        for(i in $vm.start_modules) $vm.start_modules[i]=$vm.start_modules[i].replace('$H',$vm.hosting_path);
+        //------------------------------------
+        //modules used immediately
+        $vm.module_list={
+            //you can add modules here directly
+            "home":	        {url:"$H/home.html",Table:"wappsystem-contact-us",router:1},
+            "frame":	    {url:"$H/frame.html",sys:1},
+            "app":	        {url:"$H/app.html"},
+            "header":	    {url:"$H/header.html"},
+            "footer":	    {url:"$H/footer.html"},
+        };
+        for(p in $vm.module_list) $vm.module_list[p].url=$vm.module_list[p].url.replace('$H',$vm.hosting_path);
+        for(p in $vm.module_list) $vm.module_list[p].url=$vm.module_list[p].url.replace('$M',$vm.m_path);
+        //------------------------------------
+        //all other modules, used on demand 
+        $vm.app_modules=[
+            //you can add a js file that will add mmodules to the $vm.module_list
+            "$M/wappsystem-home.js",
+        ]
+        for(i in $vm.app_modules) $vm.app_modules[i]=$vm.app_modules[i].replace('$M',$vm.m_path);
+        //------------------------------------
+        //called by framework
+        $vm.start=function(){
+            $vm.load_component('header',$vm.root_layout_header,{});
+            $vm.load_component('footer',$vm.root_layout_footer,{});
+            $vm.load_component('app',$vm.root_layout_system,{});
+        }
+        //------------------------------------
+        
+        
+        //------------------------------------
+        //Do not need to chang the following code in most cases
+        //The following code will load a framework module and on demand module list
+        //------------------------------------
+        $VmAPI={};$vm.start_time=new Date().getTime();
+        //------------------------------------
+        $vm.root_layout_header='header';
+        $vm.root_layout_content_slot='content'
+        $vm.root_layout_footer='footer';
+        $vm.root_layout_system='system';
+        //---------------------------------------------
+        $vm._I=0; $vm._N=$vm.start_modules.length;
+        $vm._boot=function(){
+            $vm._I++;
+            if($vm._I==$vm._N){
+                $vm._start();
+            }
+        }
+        //------------------------------------------
+        $vm._J=0; $vm._JN=$vm.app_modules.length;
+        $vm._boot2=function(){
+            $vm._J++;
+            if($vm._J==$vm._JN){
+                console.log("module list is ready  "+(new Date().getTime()-$vm.start_time)+'ms');
+                $vm.all_module=1;
+            }
+        }
+        //------------------------------------------
+        $vm._id=1;
+        //---------------------------------------------
+        var apppath=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
+        console.log("start point  "+(new Date().getTime()-$vm.start_time)+'ms');
+        $($vm.start_modules).each(function(index,url){
+            var ver=localStorage.getItem(apppath+url+"ver");
+            var txt=localStorage.getItem(apppath+url+"txt");
+            if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
+                $.get(url+'?_='+new Date().getTime(),function(new_txt){
+                    localStorage.setItem(apppath+url+"txt",new_txt);
+                    localStorage.setItem(apppath+url+"ver",$vm.ver[0]);
+                    console.log('loading from url, done at '+(new Date().getTime()-$vm.start_time)+'ms. '+url );
+                    $('#system').append(new_txt.replace(/__ID/g,'_'+(index+1)));
+                    $vm._boot();
+                },'text');
+            }
+            else{
+                console.log('loading from storage. done at '+(new Date().getTime()-$vm.start_time)+'ms. '+url+' '+ver+'/'+$vm.ver[0]);
+                $('#system').append(txt.replace(/__ID/g,'_'+(index+1)));
+                $vm._boot();
+            }
+        })
+        //---------------------------------------------
+        //(delayed) load module-list js and run;
+        setTimeout(function (){
+            var T=0;
+            $($vm.app_modules).each(function(index,url){
+                T+=10;
+                setTimeout(function (){
+                    var ver=localStorage.getItem(apppath+url+"ver");
+                    var txt=localStorage.getItem(apppath+url+"txt");
+                    if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
+                        $.get(url+'?_='+new Date().getTime(),function(new_txt){
+                            localStorage.setItem(apppath+url+"txt",new_txt);
+                            localStorage.setItem(apppath+url+"ver",$vm.ver[0]);
+                            console.log('loading from url, done at '+(new Date().getTime()-$vm.start_time)+'ms. '+url);
+                            eval(new_txt);
+                            $vm._boot2();
+                        },'text');
+                    }
+                    else{
+                        console.log('loading from storage, done at '+(new Date().getTime()-$vm.start_time)+'ms. '+url+' '+ver+'/'+$vm.ver[0]);
+                        eval(txt);
+                        $vm._boot2();
+                    }
+                },10+T);
+            })
+        },10);
+        //---------------------------------------------
+    </script>
 </html>

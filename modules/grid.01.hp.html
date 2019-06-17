@@ -1,0 +1,123 @@
+<section>
+        <div id=toolbar__ID class="navbar navbar-default">
+            <div id=row_1__ID class="col-sm _col-lg-3 form-inline">
+                <a class="col-"><button type="button" class='btn btn-info btn-sm ' data-toggle="collapse" data-target="#help__ID" title="Help - Intructions" ><i class="fa fa-info"></i></button></a>
+                <button id=new__ID  type=button class='btn btn-secondary btn-sm' title='Add New'><i class="fa fa-plus"></i></button>
+                <div id=add_search__ID><input id=keyword__ID type="text" placeholder="keyword" class="form-control form-control-sm" style="width: 150px; display:inline-block;"></div>
+                <button id=query__ID type=button class="btn btn-secondary btn-sm" title='Search for keyword'><i class="fa fa-search" ></i></button>
+            </div>
+            <div class="col-sm _col-lg-3 form-inline">
+                    Page Size:
+                    <select id=page_size__ID class="form-control form-control-sm" style='margin-right:20px;display:inline-block;width:auto;'><option>30</option><option>50</option><option>100</option><option>200</option></select>
+                    <span id=I__ID style="display:none">0</span><span id=A__ID></span>
+                    <button id=p__ID type=button class="btn btn-secondary btn-sm" title="Previous page"><i class="fa fa-arrow-left"></i></button>
+                    <button id=n__ID type=button class="btn btn-secondary btn-sm" title="Next page"><i class="fa fa-arrow-right"></i></button>
+            </div>
+            <div id=import_export_section__ID class="col-sm _col-lg-3 form-inline">
+                <button id=export__ID type=button class="btn btn-secondary btn-sm" title=Export><i class="fa fa-download" ></i></button>
+                <button id=import__ID type=button class="btn btn-secondary btn-sm" title=Import><i class="fa fa-upload" ></i></button>
+                <input id=Import_f__ID type=file style='display:none' />
+        </div>
+        <span id=elapsed__ID style='float:right;display:none' ></span>
+        </div>
+        <div class="text-left form-group"><label id=title__ID></label></div><div class="text-left form-group"><label id=title_2__ID style="display:none"></label></div>
+        <div id=help__ID class="collapse">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2 text-content text-left ">
+                        <h4>Symbols</h4>
+                        <label><i class="fa fa-pencil-square-o"></i> Open form for modification</label><br>
+                        <label><i class="fa fa-trash-o"></i> Delete entry for selected row</label>
+                        <br>
+                    </div>
+                    <div class="col-sm-2 text-content text-left">
+                        <h4><i class="fa fa-plus"></i> = Add a Record</h4>
+                        <label>Will open an empty form for data entry</label>
+                        <br>
+                    </div>
+                    <div class="col-sm-2 text-content text-left">
+                        <h4><i class="fa fa-search"></i> = Search </h4>
+                        <label>If Keyword is empty a reloading of the list.<br>
+                        Search for full words in Keyword from the list.</label>
+                        <br>
+                    </div>
+                    <div class="col-sm-2 text-content text-left">
+                        <h4><i class="fa fa-arrow-left"></i> = Previous</h4>
+                        <h4><i class="fa fa-arrow-right"></i> = Next Page</h4>
+                        <label>If all entries don&apos;t fit into one page, these arrows can be used for paging </label>
+                        <br>
+                    </div>
+                    <div class="col-sm-2 text-content text-left">
+                        <h4><i class="fa fa-download"></i> = Export</h4>
+                        <label>Exporting the list to excel format (.csv)</label>
+                        <br>
+                    </div>
+                    <div class="col-sm-2 text-content text-left">
+                        <h4><i class="fa fa-upload"></i> = Import</h4>
+                        <label>Import data from tab or comma delimited files. (.txt or .csv)<br>
+                            To get the correct header - do an export.
+                        </label>
+                        <br>
+                    </div>
+                </div> 
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2 text-content text-left ">
+                        <h4>Participant ID</h4>
+                        <label>System ID - Automatically assigned. Can't be changed</label>
+                        <br>
+                    </div>
+                    <div class="col-sm-2 text-content text-left">
+                        <h4>Subject ID .. DOB</h4>
+                        <label>Customisable fields for your project. </label>
+                        <br>
+                    </div>
+                    <div class="col-sm-2 text-content text-left">
+                        <h4>Data Entry</h4>
+                        <label>Enter data for select participant.<br>Will take you to the navigation page for all data entries.</label>
+                        <br>
+                    </div>
+                    <div class="col-sm-2 text-content text-left">
+                        <h4>Setup </h4>
+                        <label>Enable questionnaire for participant to answer next time they login on Questionnaire Portal <br>
+                        </label>
+                        <br>
+                    </div>
+                    <div class="col-sm-2 text-content text-left">
+                        <h4>Questionnaire</h4>
+                        <label>Check what the participant will see. Takes you to Questionnaire Portal</label>
+                        <br>
+                    </div>
+                    <div class="col-sm-2 text-content text-left">
+                        <h4>Login ID and Password</h4>
+                        <label>Login and password for the Questionnaire Portal</label>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id=table__ID>
+            <table id=grid__ID></table>
+        </div>
+    </section>
+    <style>
+        #toolbar__ID{
+            background-color:#ccc;
+            padding:5px 0px;
+            margin-bottom:0px;
+            overflow:hidden;
+            font-family: 'Nunito Sans';
+            font-weight:600;
+            font-size: 14px;
+    
+        }
+        #toolbar__ID *{
+            margin-right:3px;
+        }
+        #table__ID{
+            overflow:auto;
+        }
+        VmInclude:__CURRENT_PATH__/../../../../modules/mdb/w/wappsystem-form.css
+    </style>
+    

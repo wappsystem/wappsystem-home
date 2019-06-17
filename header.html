@@ -1,0 +1,261 @@
+<div id=D__ID>
+    <div  style=''>
+        <div class=vm-mobile>
+            <span id=vm-mobile_title class=vm-mobile-title>WAPPSYSTEM</span>
+            <a id="vm-hamburger_button" class=vm-hamburger-button onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
+        </div>
+        <div class=vm-desk-logo>
+            <span id=vm-logo-label-A>WAPPSYSTEM</span><br>
+            <span id=vm-logo-label-B></span>
+        </div>
+        <div menu id="vm-menu">
+            <a href="https://spardac.wappsystem.com.au" target="_blank">Try CLINICAL TRIAL/RESEARCH DATA COLLECTION</a>
+            <a href="https://spardac-screening.wappsystem.com.au" target="_blank">Try ONLINE SCREENING</a>
+        </div>
+    </div>
+    <script>
+        //------------------------------------
+        $('#vm-mobile_title').on('click',function(){ $vm.load_module('home',$vm.root_layout_content_slot,{}) })
+        $('.vm-desk-logo').on('click',function(){ $vm.load_module('home',$vm.root_layout_content_slot,{}) })
+        //------------------------------------
+        $('.vm-dropdown').on('click',function(e){
+            var d=$(this).find('.vm-dropdown-content');
+            if(d.css('display')=='block') d.css('display','none');
+            else d.css('display','block');
+        })
+        $(".vm-dropdown").mouseleave(function (){  $(".vm-dropdown-content").hide();  })
+        $(".vm-dropdown-content").mouseleave(function (){  $(this).hide();  })
+        $vm.toggle=function() {
+            var x = document.getElementById("vm-menu");
+            if(x.className==='') x.className="responsive";
+            else x.className="";
+        }
+        //------------------------------------
+       /* $('#vm-menu a').on('click',function(e){
+            e.preventDefault();
+            var href=$(this).attr('href');
+            if(href!=undefined && href!='' && href.substring(0,8)=="https://"){ window.open(href); return;}
+            if(href!=undefined && href!=''){
+                if($vm.menu_click!=undefined) $vm.menu_click(href);
+            }
+            $vm.toggle();
+        })
+        //------------------------------------
+        $vm.menu_click=function(href){
+            href=href.replace('?\/','');
+            href=href.replace(/\//g,'_');
+            $vm.load_module(href,$vm.root_layout_content_slot,{});
+        }*/
+        //------------------------------------
+        $vm.header_ready=1;
+        //------------------------------------
+    </script>
+    <style>
+        #header{
+            height:100px;
+            position:fixed;
+            z-index:10;
+            top:0;
+            left:0;
+            width:100%;
+            /*overflow: hidden;*/
+            background:rgba(0,0,0,0.6);
+        }
+        .vm-desk-logo{ float:left;padding:36px 30px 0 30px;width:500px;}
+        .vm-desk-logo i {margin-left:10px;}
+        .vm-desk-logo a {color:#fff}
+        #vm-menu{ float:left;padding:50px 30px 0 30px;}
+        
+        @media screen and (max-width: 1200px){
+            #header{height:50px;}
+            .vm-desk-logo{display:none;}
+            #vm-menu{padding:0;}
+        }
+        :root {
+            --menu-color: #fff;
+            --menu-hover-color: #FDEE30;
+            --menu-hover-background-color: #555;
+
+            --dropdown-menu-color:#666;
+            --dropdown-menu-background-color:#f9f9f9;
+            --dropdown-menu-hover-color:#555;
+            --dropdown-menu-hover-background-color:#ddd;
+            --dropdown-menu-border-color:#ddd;
+
+            --mobile-title-color:#fff;
+            --mobile-hamburger-color:#fff;
+            --mobile-menu-background-color:#1c3144;
+        }
+        #vm-logo-image{
+            margin-top: -32px;
+            width:94px;
+            height:94px;
+            border-radius: 47px;
+            background: url('https://image.vmiis.com/logo.jpg') no-repeat top center;
+            background-size: cover;
+            float:left;
+            margin-right:1px;
+            cursor:pointer;
+        }
+        #vm-logo-label-A{
+            cursor:pointer;
+            font-family: Arial, sans-serif;
+            color:#fff;
+            font-size: 200%;
+            line-height:10px;
+            display:inline-block;
+            margin-left:20px;
+            margin-top:-10px;
+        }
+        #vm-logo-label-B{
+            font-family: Arial, sans-serif;
+            color:#fff;
+            font-size: 93%;
+            line-height:80%;
+            display:inline-block;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+        #vm-logo-label-B a{
+            cursor:pointer;
+        }
+        /*menu*/
+        #vm-menu {
+            overflow: hidden;
+            display:inline-block;
+            float:left;
+        }
+        #vm-menu > a {
+            color:var(--menu-color);
+            float: left;
+            display: block;
+            text-align: center;
+            padding: 10px 8px;
+            text-decoration: none;
+            font-size: 14px;
+            cursor:pointer;
+        }
+        .vm-dropbtn {
+            color:var(--menu-color);
+            display: block;
+            font-size: 14px;
+            padding: 10px 8px;
+            background-color: inherit;
+            font-family: inherit;
+            cursor:pointer;
+        }
+        .vm-dropdown {
+            color:var(--menu-color);
+            float: left;
+            overflow: hidden;
+            border: none;
+            outline: none;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+        .vm-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--dropdown-menu-background-color);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 100;
+            max-height: 1000px;
+            overflow-y: hidden;
+            border-radius: 0px 3px 3px 3px;
+            animation: vm-menu-show 1.8s;
+        }
+        .vm-dropdown-content a {
+            float: none;
+            font-size: 14px;
+            color: var(--dropdown-menu-color)!important;
+            padding: 3px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            cursor:pointer;
+            border-bottom:1px solid var(--dropdown-menu-border-color);
+        }
+        #vm-menu > a:hover, .vm-dropdown:hover .vm-dropbtn {
+          background-color:var(--menu-hover-background-color);
+          color:var(--menu-hover-color);
+          border-radius:4px;
+        }
+        .vm-dropdown-content a:hover {
+            background-color: var(--dropdown-menu-hover-background-color);
+            color: var(--dropdown-menu-hover-color);
+            text-decoration: none;
+        }
+        .vm-hide{
+            display:none!Important;
+        }
+        .vm-mobile{
+            display:none;
+        }
+        /*----------------------*/
+        @media screen and (max-width: 1200px) {
+            .vm-mobile{
+                display:block;
+            }
+            .vm-mobile-title{
+                color:var(--mobile-title-color);
+                font-size: 28px;
+                display:inline-block;
+                padding: 3px 0 3px 12px;
+                cursor: pointer;
+            }
+            #vm-hamburger_button{
+                float: right;
+                display: block;
+                font-size:28px;
+                padding:5px 16px 3px 16px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                cursor:pointer;
+                color:var(--mobile-hamburger-color);
+            }
+            #vm-menu {
+                width:100%;
+                margin-top:0px;
+                margin-right:0px;
+                margin-left:0px;
+                padding-left:15px;
+                padding-right:15px;
+                overflow: hidden;
+                background: var(--mobile-menu-background-color);
+                display:block;
+                float:unset;
+            }
+            #vm-menu a, .vm-dropdown .vm-dropbtn {
+                display: none;
+            }
+            #vm-menu.responsive {
+                position: relative;
+                animation: vm-menu-show 1.8s;
+                z-index: 100;
+            }
+            #vm-menu.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+            #vm-menu.responsive .vm-dropdown {float: none;}
+            #vm-menu.responsive .vm-dropdown-content {position: relative;}
+            #vm-menu.responsive .vm-dropdown .vm-dropbtn {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+            .vm-mobile{
+                display:block;
+            }
+        }
+        @keyframes vm-menu-show {
+            from {max-height: 0px;}
+            to {max-height: 1000px;}
+        }
+    
+    </style>
+</div>
