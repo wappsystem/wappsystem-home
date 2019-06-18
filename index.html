@@ -18,7 +18,7 @@
     </body>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[0.21,0.21]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[0.22,0.22]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         $vm.debug=1;
         //------------------------------------
         //setup modules location
@@ -47,7 +47,7 @@
         //all other modules, used on demand 
         $vm.app_modules=[
             //you can add a js file that will add mmodules to the $vm.module_list
-            "$M/wappsystem-home.js",
+            //"$M/wappsystem-home.js",
         ]
         for(i in $vm.app_modules) $vm.app_modules[i]=$vm.app_modules[i].replace('$M',$vm.m_path);
         //------------------------------------
