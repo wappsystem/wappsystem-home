@@ -42,13 +42,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" style="margin:0;padding:0">
-                    <img src="https://images.unsplash.com/photo-1442124920820-8e5f4b07b563?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=450&h=350&fit=crop&ixid=eyJhcHBfaWQiOjF9"
+                <div class="col-lg-6 imgs" style="margin:0;padding:0">
+                    <img id=test__ID src="https://images.unsplash.com/photo-1442124920820-8e5f4b07b563?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=450&h=350&fit=crop&ixid=eyJhcHBfaWQiOjF9"
                         alt="" style="object-fit: cover;height: 350px; width: 100%;">
                 </div>
             </div>
             <div class="row pb-5">
-                <div class="col-lg-6" style="margin:0;padding:0">
+                <div class="col-lg-6 imgs" style="margin:0;padding:0">
                     <img src="https://images.unsplash.com/photo-1432316212565-b26e2a381ada?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=450&h=350&fit=crop&ixid=eyJhcHBfaWQiOjF9"
                         alt="" style="object-fit: cover;height: 350px; width: 100%;">
                 </div>
@@ -125,7 +125,7 @@
                             <div class="row" style="font-size: 1rem ">
                                 <div class="col" style="text-align: left;">
                                     <ul class="fa-ul">
-                                        <li><i class="fa-li fa fa-check " style="color:#FDEE30"></i>Monthly fee $30 for API
+                                        <li><i class="fa-li fa fa-check " style="color:#FDEE30"></i>Monthly fee $30 for API use
                                         </li>
                                         <li><i class="fa-li fa fa-check " style="color:#FDEE30"></i>Ask us for database and file storage charge
                                         </li>
@@ -135,13 +135,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" style="margin:0;padding:0">
+                <div class="col-lg-6 imgs" style="margin:0;padding:0">
                     <img src="https://images.unsplash.com/photo-1516248451845-cb2956789cb8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=450&h=350&fit=crop&ixid=eyJhcHBfaWQiOjF9"
                         alt="" style="object-fit: cover;height: 350px; width: 100%;">
                 </div>
             </div>
             <div id="contact-us" class="row pb-5">
-                <div class="col-lg-6" style="margin:0;padding:0">
+                <div class="col-lg-6 imgs" style="margin:0;padding:0">
                     <img src="https://images.unsplash.com/photo-1433890070408-084b6b305d72?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=450&h=350&fit=crop&ixid=eyJhcHBfaWQiOjF9"
                         alt="" style="object-fit: cover;height: 350px; width: 100%;">
                 </div>
@@ -207,21 +207,10 @@
             }
         }
 
-        @media screen and (min-width:768px) {
-            #image-003__ID {
-                margin-top: 100px;
+        @media screen and (max-width:768px) {
+            .imgs{
+                display:none;
             }
-        }
-
-        #image-003__ID {
-            background-color: #000;
-            padding-bottom: 60px;
-            max-width: 1200px;
-        }
-
-        #image-003__ID .section-heading {
-            padding: 40px 0px;
-            text-align: center;
         }
     </style>
     <script>
