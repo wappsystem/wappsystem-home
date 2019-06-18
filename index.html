@@ -18,14 +18,14 @@
     </body>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[0.19,0.19]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[0.20,0.20]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         $vm.debug=1;
         //------------------------------------
         //setup modules location
         $vm.hosting_path=window.location.href.substring(0, window.location.href.split('?')[0].lastIndexOf('/'));
         if(window.location.href.substring(0,5)=="file:") $vm.hosting_path="https://wappsystem.github.io/wappsystem-home/";
         if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
-        $vm.m_path='https://wappsystem.github.io/wappsystem-home/'; if($vm.localhost==true) $vm.m_path='http://127.0.0.1:8000/wappsystem/wappsystem-home/components'; 
+        $vm.m_path='https://wappsystem.github.io/wappsystem-home/components'; if($vm.localhost==true) $vm.m_path='http://127.0.0.1:8000/wappsystem/wappsystem-home/components'; 
         //------------------------------------
         //where are your start modules
         $vm.start_modules=[
