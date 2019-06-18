@@ -18,7 +18,7 @@
     </body>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[0.20,0.20]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[0.21,0.21]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         $vm.debug=1;
         //------------------------------------
         //setup modules location
@@ -43,7 +43,6 @@
             "footer":	    {url:"$H/footer.html"},
         };
         for(p in $vm.module_list) $vm.module_list[p].url=$vm.module_list[p].url.replace('$H',$vm.hosting_path);
-        for(p in $vm.module_list) $vm.module_list[p].url=$vm.module_list[p].url.replace('$M',$vm.m_path);
         //------------------------------------
         //all other modules, used on demand 
         $vm.app_modules=[
