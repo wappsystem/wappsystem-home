@@ -267,6 +267,18 @@
                             //if(m.change_status==undefined) m.change_status=0;
                             m.change_status++;
                             $vm.alert('We will contact you shortly');    //standalone
+
+                            var email_html=JSON.stringify(data);
+                            var email_text=JSON.stringify(data);
+                            var req={cmd:'ses-send-email',to:"wappsystem@gmail.com,zzm.vmiis@gmail.com",email_title_uid:1,email_html:email_html,email_text:email_text}
+                            $vm.request(req,function(res){
+                                if(res.status=='ok'){
+                                    //$vm.alert("The email has been sent out to "+email_to);
+                                }
+                                else{
+                                    //$vm.alert("Error");
+                                }
+                            });
                         }
                         after_submit();
                         //-----------------------------
