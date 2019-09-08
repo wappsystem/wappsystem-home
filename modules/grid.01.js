@@ -132,7 +132,7 @@ m.cell_process=function(){
         if(column_name=='_Form'){
             var data_id=$(this).attr('data-id');
             $(this).css({'color':'#666','padding-left':'8px','padding-right':'8px'})
-            $(this).html("<u style='cursor:pointer'><i class='fa fa-pencil-square-o'></i></u>");
+            $(this).html("<u style='cursor:pointer'><i class='fas fa-pencil-square-o'></i></u>");
             $(this).find('u').on('click',function(){
                 m.form_I=row;
                 if($vm.module_list[m.form_module]===undefined){
@@ -145,7 +145,7 @@ m.cell_process=function(){
         //-------------------------
         if(column_name=='_Delete'){
             $(this).css({'color':'#666','padding-left':'8px','padding-right':'8px'})
-            $(this).html("<u style='cursor:pointer'><i class='fa fa-trash-o'></i></u>");
+            $(this).html("<u style='cursor:pointer'><i class='fas fa-trash-o'></i></u>");
             $(this).find('u').data('ID',m.records[row]._id);
             $(this).find('u').on('click',function(){
                 var rid=$(this).data('ID');
